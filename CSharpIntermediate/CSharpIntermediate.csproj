@@ -5,7 +5,7 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{7AF5510E-C6FB-4B8A-90C0-9E0314041822}</ProjectGuid>
+        <ProjectGuid>{254424AA-1816-442D-B1A5-F880EA52D15A}</ProjectGuid>
         <OutputType>Exe</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>CSharpIntermediate</RootNamespace>
