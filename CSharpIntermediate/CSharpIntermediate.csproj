@@ -40,6 +40,8 @@
     <ItemGroup>
         <Compile Include="Calculator.cs" />
         <Compile Include="Customer.cs" />
+        <Compile Include="Exercises.cs" />
+        <Compile Include="HttpCookie.cs" />
         <Compile Include="Order.cs" />
         <Compile Include="Person.cs" />
         <Compile Include="Point.cs" />

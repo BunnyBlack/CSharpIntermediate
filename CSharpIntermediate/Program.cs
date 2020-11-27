@@ -6,14 +6,22 @@ namespace CSharpIntermediate
     {
         public static void Main(string[] args)
         {
-            
+            var cookie = new HttpCookie();
+            cookie["name"] = "Mosh";
+            Console.WriteLine(cookie["name"]);
+        }
+
+        public static void PropertiesMethod()
+        {
+            var person = new Person(new DateTime(1982, 1, 1));
+            Console.WriteLine(person.Age);
         }
 
         public static void GetSetMethod()
         {
-            var person = new Person();
-            person.SetBirthdate(new DateTime(1982, 1, 1));
-            Console.WriteLine(person.GetBirthdate());
+            // var person = new Person();
+            // person.SetBirthdate(new DateTime(1982, 1, 1));
+            // Console.WriteLine(person.GetBirthdate());
         }
 
         public static void ReadonlyMethod()
@@ -75,7 +83,7 @@ namespace CSharpIntermediate
         //     person.Introduce("Mosh");
         // }
         //
-        
+
         // public static void ClassCreateMethod()
         // {
         //     var person = new Person();

@@ -5,6 +5,7 @@ namespace CSharpIntermediate
     public class Person
     {
         #region OldOne
+
         // public string Name;
         //
         // public void Introduce(string to)
@@ -21,8 +22,26 @@ namespace CSharpIntermediate
 
         #endregion
 
-        private DateTime _birthdate;
+        private DateTime Birthdate { get; }
+        private string Name { get; set; }
+        
+        public int Age
+        {
+            get
+            {
+                var timeSpan = DateTime.Today - Birthdate;
+                var year = timeSpan.Days / 365;
+                return year;
+            }
+        }
 
+
+        public Person(DateTime birthdate)
+        {
+            Birthdate = birthdate;
+        }
+
+        /*
         public void SetBirthdate(DateTime birthdate)
         {
             this._birthdate = birthdate;
@@ -32,7 +51,6 @@ namespace CSharpIntermediate
         {
             return this._birthdate;
         }
-        
-
+        */
     }
 }
