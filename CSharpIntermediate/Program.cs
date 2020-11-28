@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using Exercises;
 
 namespace CSharpIntermediate
 {
@@ -7,6 +9,29 @@ namespace CSharpIntermediate
         public static void Main(string[] args)
         {
             
+        }
+
+        private static void Exercise16_2()
+        {
+            var post = new Post("Hello World", "Hello World");
+            post.UpVoting();
+            post.UpVoting();
+            post.UpVoting();
+            post.UpVoting();
+            post.UpVoting();
+            post.DownVoting();
+
+            Console.WriteLine("Title: {0} Description: {1} up-vote: {2} down-vote: {3}", post.Title, post.Description,
+                post.UpVote.ToString(), post.DownVote.ToString());
+        }
+
+        private static void Exercise16_1()
+        {
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            Thread.Sleep(3000);
+            stopwatch.Stop();
+            Console.WriteLine(stopwatch.GetDuration().ToString());
         }
 
         public static void IndexerMethod()
