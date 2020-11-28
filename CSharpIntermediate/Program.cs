@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Mime;
 using System.Threading;
 using Exercises;
 
@@ -9,6 +10,23 @@ namespace CSharpIntermediate
         public static void Main(string[] args)
         {
             
+        }
+
+        private static void CompositionMethod()
+        {
+            var dbMigrator = new DbMigrator(new Logger());
+            var logger = new Logger();
+            var installer = new Installer(logger);
+
+            dbMigrator.Migrate();
+            installer.Install();
+        }
+
+        private static void InheritanceMethod()
+        {
+            var text = new Text();
+            text.Width = 100;
+            text.Copy();
         }
 
         private static void Exercise16_2()
