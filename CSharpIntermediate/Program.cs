@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Net.Mime;
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading;
-using Exercises;
 
 namespace CSharpIntermediate
 {
@@ -10,6 +10,53 @@ namespace CSharpIntermediate
         public static void Main(string[] args)
         {
             
+        }
+
+        private static void Exercise27()
+        {
+            var stack = new Stack();
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+            Console.WriteLine(stack.Pop());
+            Console.WriteLine(stack.Pop());
+            Console.WriteLine(stack.Pop());
+        }
+
+        private static void BoxingMethod()
+        {
+            var list = new ArrayList();
+            list.Add(1);
+            list.Add("Mosh");
+            list.Add(DateTime.Today);
+
+            var anotherList = new List<int>();
+            anotherList.Add(1);
+            var names = new List<string>();
+            names.Add("1");
+        }
+
+        private static void UpcastingMethod()
+        {
+            var text = new Text();
+            PresentationObject obj = text; // 并未自动进行类型转换 而是指向了同一个变量
+            text.Width = 200;
+            obj.Width = 100;
+            Console.WriteLine(text.Width);
+            obj = text as PresentationObject;
+            obj.Width = 200;
+            Console.WriteLine(text.Width);
+            // var reader = new StreamReader(new MemoryStream());
+            
+
+            var anotherList = new List<PresentationObject>();
+
+            PresentationObject shape = new Text();
+        }
+
+        private static void ConstructorAndInheritanceMethod()
+        {
+            var car = new Car("XYZ123");
         }
 
         private static void CompositionMethod()

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
-namespace Exercises
+namespace CSharpIntermediate
 {
     public class Stopwatch
     {
@@ -65,6 +67,42 @@ namespace Exercises
         public void DownVoting()
         {
             DownVote++;
+        }
+    }
+
+    public class Stack
+    {
+        private List<object> _items;
+
+        public Stack()
+        {
+            _items = new List<object>();
+        }
+
+        public void Push(object obj)
+        {
+            if (obj == null)
+            {
+                throw new InvalidOperationException("Push item cannot be null");
+            }
+            _items.Add(obj);
+        }
+
+        public object Pop()
+        {
+            if (_items.Count == 0)
+            {
+                throw new InvalidOperationException("Stack is null");
+            }
+
+            var item = _items[_items.Count - 1];
+            _items.RemoveAt(_items.Count - 1);
+            return item;
+        }
+
+        public void Clear()
+        {
+            _items.Clear();
         }
     }
 }
