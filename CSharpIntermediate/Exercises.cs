@@ -85,6 +85,7 @@ namespace CSharpIntermediate
             {
                 throw new InvalidOperationException("Push item cannot be null");
             }
+
             _items.Add(obj);
         }
 
@@ -121,11 +122,10 @@ namespace CSharpIntermediate
         public abstract void Close();
     }
 
-    public class SqlConnection :DbConnection
+    public class SqlConnection : DbConnection
     {
         public SqlConnection(string connectionString) : base(connectionString)
         {
-            
         }
 
         public override void Open()
@@ -143,7 +143,6 @@ namespace CSharpIntermediate
     {
         public OracleConnection(string connectionString) : base(connectionString)
         {
-            
         }
 
         public override void Open()
@@ -175,6 +174,59 @@ namespace CSharpIntermediate
             DbConnection.Close();
         }
     }
+
+    public class WorkFlowEngine
+    {
+        private readonly List<IActivity> _activities;
+
+        public WorkFlowEngine(List<IActivity> activities)
+        {
+            _activities = activities;
+        }
+
+        public void Run()
+        {
+            foreach (var activity in _activities)
+            {
+                activity.Execute();
+            }
+        }
+    }
+
+    public interface IActivity
+    {
+        void Execute();
+    }
+
+    public class SetStateToProcessing : IActivity
+    {
+        public void Execute()
+        {
+            Console.WriteLine("Set State to Processing");
+        }
+    }
+
+    public class SendEmailToOwner : IActivity
+    {
+        public void Execute()
+        {
+            Console.WriteLine("Sending email to owner");
+        }
+    }
+
+    public class CallWebService : IActivity
+    {
+        public void Execute()
+        {
+            Console.WriteLine("Calling web service");
+        }
+    }
+
+    public class Upload : IActivity
+    {
+        public void Execute()
+        {
+            Console.WriteLine("Uploading video.");
+        }
+    }
 }
-
-

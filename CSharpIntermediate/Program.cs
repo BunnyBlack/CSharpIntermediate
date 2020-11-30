@@ -9,6 +9,18 @@ namespace CSharpIntermediate
     {
         public static void Main(string[] args)
         {
+            
+        }
+
+        private static void Exercise39()
+        {
+            var workflow = new WorkFlowEngine(new List<IActivity>
+                {new Upload(), new CallWebService(), new SendEmailToOwner(), new SetStateToProcessing()});
+            workflow.Run();
+        }
+
+        private static void Exercise32_2()
+        {
             var command = new DbCommand(new SqlConnection("Test1"), "Update");
             command.Execute();
             Console.WriteLine();
@@ -73,7 +85,7 @@ namespace CSharpIntermediate
             obj.Width = 200;
             Console.WriteLine(text.Width);
             // var reader = new StreamReader(new MemoryStream());
-            
+
 
             var anotherList = new List<PresentationObject>();
 
