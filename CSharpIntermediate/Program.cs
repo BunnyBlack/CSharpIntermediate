@@ -9,7 +9,33 @@ namespace CSharpIntermediate
     {
         public static void Main(string[] args)
         {
-            
+            var command = new DbCommand(new SqlConnection("Test1"), "Update");
+            command.Execute();
+            Console.WriteLine();
+            command.DbConnection = new OracleConnection("Test2");
+            command.Command = "Add";
+            command.Execute();
+        }
+
+        private static void Exercise32_1()
+        {
+            var sqlConnection = new SqlConnection("Test1");
+            var oracleConnection = new OracleConnection("Test2");
+            sqlConnection.Open();
+            sqlConnection.Close();
+
+            oracleConnection.Open();
+            oracleConnection.Close();
+        }
+
+        private static void AbstractMethod()
+        {
+            var shapes = new List<Shape>();
+            shapes.Add(new Circle());
+            shapes.Add(new Rectangle());
+
+            var canvas = new Canvas();
+            canvas.DrawShapes(shapes);
         }
 
         private static void Exercise27()

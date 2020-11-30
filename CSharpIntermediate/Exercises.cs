@@ -105,4 +105,76 @@ namespace CSharpIntermediate
             _items.Clear();
         }
     }
+
+    public abstract class DbConnection
+    {
+        public string ConnectionString { get; set; }
+        public TimeSpan Timeout { get; set; }
+
+        protected DbConnection(string connectionString)
+        {
+            ConnectionString = connectionString ?? throw new ArgumentNullException(nameof(connectionString));
+            Timeout = TimeSpan.FromMinutes(5);
+        }
+
+        public abstract void Open();
+        public abstract void Close();
+    }
+
+    public class SqlConnection :DbConnection
+    {
+        public SqlConnection(string connectionString) : base(connectionString)
+        {
+            
+        }
+
+        public override void Open()
+        {
+            Console.WriteLine("Open SqlConnection");
+        }
+
+        public override void Close()
+        {
+            Console.WriteLine("Close SqlConnection");
+        }
+    }
+
+    public class OracleConnection : DbConnection
+    {
+        public OracleConnection(string connectionString) : base(connectionString)
+        {
+            
+        }
+
+        public override void Open()
+        {
+            Console.WriteLine("Open OracleConnection");
+        }
+
+        public override void Close()
+        {
+            Console.WriteLine("Close OracleConnection");
+        }
+    }
+
+    public class DbCommand
+    {
+        public DbConnection DbConnection { get; set; }
+        public string Command { get; set; }
+
+        public DbCommand(DbConnection dbConnection, string command)
+        {
+            DbConnection = dbConnection ?? throw new ArgumentNullException(nameof(dbConnection));
+            Command = command ?? throw new ArgumentNullException(nameof(command));
+        }
+
+        public void Execute()
+        {
+            DbConnection.Open();
+            Console.WriteLine("Execute {0} command", Command);
+            DbConnection.Close();
+        }
+    }
 }
+
+

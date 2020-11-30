@@ -39,6 +39,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Calculator.cs" />
+        <Compile Include="Canvas.cs" />
         <Compile Include="Car.cs" />
         <Compile Include="Customer.cs" />
         <Compile Include="DbMigrator.cs" />
@@ -49,9 +50,11 @@
         <Compile Include="Order.cs" />
         <Compile Include="Person.cs" />
         <Compile Include="Point.cs" />
+        <Compile Include="Position.cs" />
         <Compile Include="PresentationObject.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Shape.cs" />
         <Compile Include="Text.cs" />
         <Compile Include="Vehicle.cs" />
     </ItemGroup>
